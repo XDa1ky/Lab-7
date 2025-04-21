@@ -32,7 +32,7 @@ def show(weather: dict) -> None:
 
 
 def main() -> None:
-    print("⛅️  Быстрый прогноз погоды (ENTER — выход)")
+    print("Введите город, Enter - выход")
 
     while True:
         city = input("\nНазвание города: ").strip()
@@ -42,11 +42,11 @@ def main() -> None:
         try:
             show(get_weather(city))
         except requests.exceptions.HTTPError as err:
-            print("🚫 Сервер вернул ошибку:", err)
+            print("Site Error", err)
         except requests.exceptions.RequestException:
-            print("⚠️  Сетевой сбой: проверьте подключение.")
+            print("Internet Error")
         except (KeyError, IndexError):
-            print("🤷  Не удалось понять ответ сервиса. Попробуйте другой город.")
+            print("Not Founded")
 
         if input("Продолжить? [Y/n] ").lower().startswith("n"):
             break

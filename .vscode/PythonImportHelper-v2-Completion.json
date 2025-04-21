@@ -136,7 +136,7 @@
         "kind": 2,
         "importPath": "tsk1",
         "description": "tsk1",
-        "peekOfCode": "def show(weather: dict) -> None:\n    w = weather\n    print(\n        f\"\\nПогода      : {w['weather'][0]['description']}\"\n        f\"\\nТемпература : {w['main']['temp']:.1f} °C\"\n        f\"\\nВлажность   : {w['main']['humidity']} %\"\n        f\"\\nДавление    : {w['main']['pressure']} hPa\\n\"\n    )\ndef main() -> None:\n    print(\"⛅️  Быстрый прогноз погоды (ENTER — выход)\")",
+        "peekOfCode": "def show(weather: dict) -> None:\n    w = weather\n    print(\n        f\"\\nПогода      : {w['weather'][0]['description']}\"\n        f\"\\nТемпература : {w['main']['temp']:.1f} °C\"\n        f\"\\nВлажность   : {w['main']['humidity']} %\"\n        f\"\\nДавление    : {w['main']['pressure']} hPa\\n\"\n    )\ndef main() -> None:\n    print(\"Введите город, Enter - выход\")",
         "detail": "tsk1",
         "documentation": {}
     },
@@ -145,7 +145,7 @@
         "kind": 2,
         "importPath": "tsk1",
         "description": "tsk1",
-        "peekOfCode": "def main() -> None:\n    print(\"⛅️  Быстрый прогноз погоды (ENTER — выход)\")\n    while True:\n        city = input(\"\\nНазвание города: \").strip()\n        if city.lower() in {\"\", \"exit\", \"quit\"}:\n            exit()\n        try:\n            show(get_weather(city))\n        except requests.exceptions.HTTPError as err:\n            print(\"🚫 Сервер вернул ошибку:\", err)",
+        "peekOfCode": "def main() -> None:\n    print(\"Введите город, Enter - выход\")\n    while True:\n        city = input(\"\\nНазвание города: \").strip()\n        if city.lower() in {\"\", \"exit\", \"quit\"}:\n            exit()\n        try:\n            show(get_weather(city))\n        except requests.exceptions.HTTPError as err:\n            print(\"Site Error\", err)",
         "detail": "tsk1",
         "documentation": {}
     },
