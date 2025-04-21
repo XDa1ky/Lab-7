@@ -1,0 +1,233 @@
+[
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "exit",
+        "importPath": "sys",
+        "description": "sys",
+        "isExtraImport": true,
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "pathlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "fill",
+        "importPath": "textwrap",
+        "description": "textwrap",
+        "isExtraImport": true,
+        "detail": "textwrap",
+        "documentation": {}
+    },
+    {
+        "label": "analyze",
+        "kind": 2,
+        "importPath": "lr5",
+        "description": "lr5",
+        "peekOfCode": "def analyze(text_en):\n    url = \"http://api.text2data.com/v3/analyze\"\n    payload = {\n        'DocumentText': f'{text_en}',\n        'IsTwitterContent': 'false',\n        'PrivateKey': '94B27606-BF53-415D-B690-A45D611DF7C9',  # add your private key here (you can find it in the admin panel once you sign-up)\n        'Secret': '123',  # this should be set-up in admin panel as well\n        'RequestIdentifier': ''  # optional, used for reporting context\n    }\n    resp_an = requests.post(url, data=payload)",
+        "detail": "lr5",
+        "documentation": {}
+    },
+    {
+        "label": "get_text",
+        "kind": 2,
+        "importPath": "main-2",
+        "description": "main-2",
+        "peekOfCode": "def get_text():\n    headers = {\n        \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjJlMTIxYjUtOWJlNy00YjAzLWEzMGYtNjE3YjMxODVlYjRkIiwidHlwZSI6ImFwaV90b2tlbiJ9.lGQpMRulvr5QIAYIIEL4shQhqGtVbN0Zg_0VvJacDvo\"}\n    url = \"https://api.edenai.run/v2/text/generation\"\n    payload = {\n        \"providers\": \"openai\",\n        \"text\": \"tell me something about space adventures\",\n        \"temperature\": 0.2,\n        \"max_tokens\": 250\n    }",
+        "detail": "main-2",
+        "documentation": {}
+    },
+    {
+        "label": "city_name",
+        "kind": 5,
+        "importPath": "main-2",
+        "description": "main-2",
+        "peekOfCode": "city_name = 'Madrid'\nkey = '2f44ab8d94825710392977b37c24d3ac'\nresponse = requests.post(f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={key}')\nresult = json.loads(response.text)\nprint(result)",
+        "detail": "main-2",
+        "documentation": {}
+    },
+    {
+        "label": "key",
+        "kind": 5,
+        "importPath": "main-2",
+        "description": "main-2",
+        "peekOfCode": "key = '2f44ab8d94825710392977b37c24d3ac'\nresponse = requests.post(f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={key}')\nresult = json.loads(response.text)\nprint(result)",
+        "detail": "main-2",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "main-2",
+        "description": "main-2",
+        "peekOfCode": "response = requests.post(f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={key}')\nresult = json.loads(response.text)\nprint(result)",
+        "detail": "main-2",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "main-2",
+        "description": "main-2",
+        "peekOfCode": "result = json.loads(response.text)\nprint(result)",
+        "detail": "main-2",
+        "documentation": {}
+    },
+    {
+        "label": "get_weather",
+        "kind": 2,
+        "importPath": "tsk1",
+        "description": "tsk1",
+        "peekOfCode": "def get_weather(city: str) -> dict:\n    resp = requests.get(\n        BASE_URL,\n        params={\n            \"q\": city,\n            \"units\": \"metric\",\n            \"lang\": \"ru\",\n            \"appid\": API_KEY,\n        },\n        timeout=10,",
+        "detail": "tsk1",
+        "documentation": {}
+    },
+    {
+        "label": "show",
+        "kind": 2,
+        "importPath": "tsk1",
+        "description": "tsk1",
+        "peekOfCode": "def show(weather: dict) -> None:\n    w = weather\n    print(\n        f\"\\nПогода      : {w['weather'][0]['description']}\"\n        f\"\\nТемпература : {w['main']['temp']:.1f} °C\"\n        f\"\\nВлажность   : {w['main']['humidity']} %\"\n        f\"\\nДавление    : {w['main']['pressure']} hPa\\n\"\n    )\ndef main() -> None:\n    print(\"⛅️  Быстрый прогноз погоды (ENTER — выход)\")",
+        "detail": "tsk1",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "tsk1",
+        "description": "tsk1",
+        "peekOfCode": "def main() -> None:\n    print(\"⛅️  Быстрый прогноз погоды (ENTER — выход)\")\n    while True:\n        city = input(\"\\nНазвание города: \").strip()\n        if city.lower() in {\"\", \"exit\", \"quit\"}:\n            exit()\n        try:\n            show(get_weather(city))\n        except requests.exceptions.HTTPError as err:\n            print(\"🚫 Сервер вернул ошибку:\", err)",
+        "detail": "tsk1",
+        "documentation": {}
+    },
+    {
+        "label": "API_KEY",
+        "kind": 5,
+        "importPath": "tsk1",
+        "description": "tsk1",
+        "peekOfCode": "API_KEY = \"056d605974eea18577eed680a6e41a58\"\nBASE_URL = \"https://api.openweathermap.org/data/2.5/weather\"\ndef get_weather(city: str) -> dict:\n    resp = requests.get(\n        BASE_URL,\n        params={\n            \"q\": city,\n            \"units\": \"metric\",\n            \"lang\": \"ru\",\n            \"appid\": API_KEY,",
+        "detail": "tsk1",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_URL",
+        "kind": 5,
+        "importPath": "tsk1",
+        "description": "tsk1",
+        "peekOfCode": "BASE_URL = \"https://api.openweathermap.org/data/2.5/weather\"\ndef get_weather(city: str) -> dict:\n    resp = requests.get(\n        BASE_URL,\n        params={\n            \"q\": city,\n            \"units\": \"metric\",\n            \"lang\": \"ru\",\n            \"appid\": API_KEY,\n        },",
+        "detail": "tsk1",
+        "documentation": {}
+    },
+    {
+        "label": "fetch",
+        "kind": 2,
+        "importPath": "tsk2",
+        "description": "tsk2",
+        "peekOfCode": "def fetch(word: str) -> list | dict:\n    resp = requests.get(URL.format(word=word, key=API_KEY), timeout=10)\n    resp.raise_for_status()\n    return resp.json()\ndef extract(entry: dict | None, word: str) -> dict:\n    if not entry or not isinstance(entry, dict):\n        return {\n            \"word\": word,\n            \"part_of_speech\": \"—\",\n            \"pronunciation\": \"—\",",
+        "detail": "tsk2",
+        "documentation": {}
+    },
+    {
+        "label": "extract",
+        "kind": 2,
+        "importPath": "tsk2",
+        "description": "tsk2",
+        "peekOfCode": "def extract(entry: dict | None, word: str) -> dict:\n    if not entry or not isinstance(entry, dict):\n        return {\n            \"word\": word,\n            \"part_of_speech\": \"—\",\n            \"pronunciation\": \"—\",\n            \"definition_1\": \"—\",\n            \"definition_2\": \"—\",\n            \"total_definitions\": 0,\n        }",
+        "detail": "tsk2",
+        "documentation": {}
+    },
+    {
+        "label": "save_json",
+        "kind": 2,
+        "importPath": "tsk2",
+        "description": "tsk2",
+        "peekOfCode": "def save_json(data: dict, word: str) -> pathlib.Path:\n    stamp = dt.datetime.now().strftime(\"%Y%m%d_%H%M%S\")\n    path = pathlib.Path(f\"{word}_info_{stamp}.json\")\n    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), \"utf-8\")\n    return path.resolve()\ndef pretty(block: dict) -> None:\n    print(\"\\n\" + \"=\" * 44)\n    for k, v in block.items():\n        print(f\"{k:<18}: {fill(str(v), width=60)}\")\n    print(\"=\" * 44 + \"\\n\")",
+        "detail": "tsk2",
+        "documentation": {}
+    },
+    {
+        "label": "pretty",
+        "kind": 2,
+        "importPath": "tsk2",
+        "description": "tsk2",
+        "peekOfCode": "def pretty(block: dict) -> None:\n    print(\"\\n\" + \"=\" * 44)\n    for k, v in block.items():\n        print(f\"{k:<18}: {fill(str(v), width=60)}\")\n    print(\"=\" * 44 + \"\\n\")\ndef main() -> None:\n    print(\"Введите слово, ENTER — выйти)\")\n    while True:\n        word = input(\"Введите слово: \").strip()\n        if word.lower() in {\"\", \"exit\", \"quit\"}:",
+        "detail": "tsk2",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "tsk2",
+        "description": "tsk2",
+        "peekOfCode": "def main() -> None:\n    print(\"Введите слово, ENTER — выйти)\")\n    while True:\n        word = input(\"Введите слово: \").strip()\n        if word.lower() in {\"\", \"exit\", \"quit\"}:\n            sys.exit()\n        try:\n            raw = fetch(word)\n            entry = raw[0] if raw and isinstance(raw[0], dict) else None\n            info = extract(entry, word)",
+        "detail": "tsk2",
+        "documentation": {}
+    },
+    {
+        "label": "API_KEY",
+        "kind": 5,
+        "importPath": "tsk2",
+        "description": "tsk2",
+        "peekOfCode": "API_KEY = \"627a95e3-60c4-45ee-b02a-8aeff8eb5da3\"\nURL = (\n    \"https://www.dictionaryapi.com/api/v3/references/collegiate/\"\n    \"json/{word}?key={key}\"\n)\ndef fetch(word: str) -> list | dict:\n    resp = requests.get(URL.format(word=word, key=API_KEY), timeout=10)\n    resp.raise_for_status()\n    return resp.json()\ndef extract(entry: dict | None, word: str) -> dict:",
+        "detail": "tsk2",
+        "documentation": {}
+    },
+    {
+        "label": "URL",
+        "kind": 5,
+        "importPath": "tsk2",
+        "description": "tsk2",
+        "peekOfCode": "URL = (\n    \"https://www.dictionaryapi.com/api/v3/references/collegiate/\"\n    \"json/{word}?key={key}\"\n)\ndef fetch(word: str) -> list | dict:\n    resp = requests.get(URL.format(word=word, key=API_KEY), timeout=10)\n    resp.raise_for_status()\n    return resp.json()\ndef extract(entry: dict | None, word: str) -> dict:\n    if not entry or not isinstance(entry, dict):",
+        "detail": "tsk2",
+        "documentation": {}
+    }
+]
